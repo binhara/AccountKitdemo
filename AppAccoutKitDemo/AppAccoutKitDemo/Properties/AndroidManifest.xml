@@ -3,7 +3,21 @@
           android:versionCode="1" 
           android:versionName="1.0" 
           package="AppAccoutKitDemo.AppAccoutKitDemo">
-  <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="27" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="28" />
+  
   <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme">
+    <meta-data android:name="com.facebook.accountkit.ApplicationName" android:value="@string/app_name" />
+    <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/FACEBOOK_APP_ID" />
+    <meta-data android:name="com.facebook.accountkit.ClientToken" android:value="@string/ACCOUNT_KIT_CLIENT_TOKEN" />
+    <activity android:name="com.facebook.accountkit.ui.AccountKitActivity" />
+    <activity android:name="com.facebook.accountkit.ui.AccountKitEmailRedirectActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="@string/ak_login_protocol_scheme" />
+      </intent-filter>
+    </activity>
   </application>
 </manifest>
